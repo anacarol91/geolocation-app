@@ -16,6 +16,7 @@ controllers.controller('DomainLocationController', function($scope, LocationServ
         $scope.showDomainLocation = true;
       }, (error) => {
           // tratar erro
+            console.log("It seems that this domain doesn't exist yet.");
             console.log(error);
           $scope.showDomainLocation = false;
         });
