@@ -9,8 +9,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 </head>
 
-<body ng-app="app" ng-controller="LocationController">
+<body ng-app="app" class="container">
 
+  <!-- user section -->
+  <section id="userSection" ng-controller="UserLocationController">
+    <a ng-click="getUserLocation()" class="waves-effect waves-light btn">my location</a>
+    <a ng-click="resetUserLocation()" class="waves-effect waves-light btn">reset location</a>
+  </section>
+
+  <!-- domain section -->
+  <section id="domainSection">
+  </section>
 
   <!-- JS SCRIPTS -->
   <script src="js/node_modules/angular/angular.js"></script>
