@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
   <style>
-    #map {
+    #user-map, #domain-map {
       height: 400px;
       width: 100%;
       background-color: transparent;
@@ -23,7 +23,66 @@
 <body ng-app="app" class="container">
 
   <!-- domain section -->
-  <section id="domain-section">
+  <section id="domain-section" ng-controller="DomainLocationController">
+    <article id="domain-controls">
+      <label>Name: <input type="text" ng-model="hostName" /></label>
+      <a ng-click="getDomainLocation(hostName)" class="waves-effect waves-light btn">locate</a>
+    </article>
+
+    <article ng-show="showDomainLocation" id="domain-location">
+     <div class="card" style="width: 45%;">
+        <div class="card-image waves-effect waves-block waves-light">
+          <div id="domain-map"></div>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">{{hostName}} estimated location<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{hostName}} estimated location details<i class="material-icons right">close</i></span>
+
+          <table class="centered striped">
+            <tbody>
+              <tr ng-if="domainDetails.ip">
+                <th>IP</th>
+                <td>{{domainDetails.ip}}</td>
+              </tr>
+              <tr ng-if="domainDetails.zip_code">
+                <th>ZIP CODE</th>
+                <td>{{domainDetails.zip_code}}</td>
+              </tr>
+              <tr ng-if="domainDetails.city">
+                <th>CITY</th>
+                <td>{{domainDetails.city}}</td>
+              </tr>
+              <tr ng-if="domainDetails.region_name">
+                <th>REGION</th>
+                <td>{{domainDetails.region_name}}</td>
+              </tr>
+              <tr ng-if="domainDetails.region_code">
+                <th>REGION CODE</th>
+                <td>{{domainDetails.region_code}}</td>
+              </tr>
+              <tr ng-if="domainDetails.country_name">
+                <th>COUNTRY</th>
+                <td>{{domainDetails.country_name}}</td>
+              </tr>
+              <tr ng-if="domainDetails.country_code">
+                <th>COUNTRY CODE</th>
+                <td>{{domainDetails.country_code}}</td>
+              </tr>
+              <tr ng-if="domainDetails.longitude">
+                <th>LOGITUDE</th>
+                <td>{{domainDetails.longitude}}</td>
+              </tr>
+              <tr ng-if="domainDetails.latitude">
+                <th>LATITUDE</th>
+                <td>{{domainDetails.latitude}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
   </section>
 
   <!-- user section -->
@@ -36,7 +95,7 @@
     <article ng-show="showUserLocation" id="user-location">
       <div class="card" style="width: 45%;">
         <div class="card-image waves-effect waves-block waves-light">
-          <div id="map"></div>
+          <div id="user-map"></div>
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">User estimated location<i class="material-icons right">more_vert</i></span>
@@ -94,7 +153,7 @@
   <script src="js/app.js"></script>
   <script src="js/services/location.js"></script>
   <script src="js/controllers/user.js"></script>
-  <!-- <script src="js/controllers/domain.js"></script> -->
+  <script src="js/controllers/domain.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa50Xi1viwlJTT8ybafrzTvu_AUqueEeE"></script>
 </body>

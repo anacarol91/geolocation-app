@@ -6,16 +6,16 @@ controllers.controller('UserLocationController', function($scope, LocationServic
 
 	/* scope functions */
 	$scope.getUserLocation = () => {
-	LocationService.getLocation('').then(
-		(response) => {
-			initMap(response.data.latitude, response.data.longitude);
-	        $scope.userDetails =  response.data;
-	        $scope.showUserLocation = true;
-		}, (error) => {
-	    	// tratar erro
-	        console.log(error);
-  			$scope.showUserLocation = false;
-	    });
+		LocationService.getLocation('').then(
+			(response) => {
+				LocationService.initMap(response.data.latitude, response.data.longitude, 'user');
+		        $scope.userDetails =  response.data;
+		        $scope.showUserLocation = true;
+			}, (error) => {
+		    	// tratar erro
+		        console.log(error);
+	  			$scope.showUserLocation = false;
+		    });
 	}
 
 	$scope.resetUserLocation = () => {
@@ -23,20 +23,4 @@ controllers.controller('UserLocationController', function($scope, LocationServic
   		$scope.showUserLocation = false;
   	}
 
-  	/* controller functions */
-  	var initMap = (latitude, longitude) => {
-        var uluru = {lat: latitude, lng: longitude};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
-          center: uluru,
-          fullscreenControl: false,
-          mapTypeControl: false,
-          streetViewControl: false,
-          zoomControl: false
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
 });
