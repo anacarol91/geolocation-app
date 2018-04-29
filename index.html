@@ -12,32 +12,43 @@
 
 <body ng-app="app" class="container">
 
+  <header id="header">
+    GEOLOCATION
+    <hr>
+  </header>
+
   <!-- domain section -->
   <section id="domain-section" ng-controller="DomainLocationController">
     <article id="domain-controls">
 
+      <h2>Locate any <br/>website</h2>
+
       <form name="domainForm" class="myForm" ng-submit="getDomainLocation(hostName)" novalidate>
         <input type="text" name="hostName" ng-model="hostName" ng-pattern="/^(w{3}\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/" required />
 
-        <div ng-messages="domainForm.hostName.$error" ng-if="domainForm.hostName.$touched">
+        <div ng-messages="domainForm.hostName.$error" ng-if="domainForm.hostName.$touched" class="error-message">
           <div ng-message="required">This field is required</div>
-          <div ng-message="pattern">Please enter a valid URL</div>
+          <div ng-message="pattern">Please enter a valid website domain</div>
         </div>
 
-      <button ng-disabled="domainForm.$invalid" type="submit" class="waves-effect waves-light btn">locate</button>
+      <button ng-disabled="domainForm.$invalid" type="submit" class="waves-effect btn primary-btn">locate</button>
       </form>
     </article>
 
     <article ng-show="showDomainLocation" id="domain-location">
-     <div class="card">
+      <div>
+
+      </div>
+
+     <div ng-show="showDomainLocation" class="card">
         <div class="card-image waves-effect waves-block waves-light">
           <div id="domain-map"></div>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">Host estimated location<i class="material-icons right">more_vert</i></span>
+          <span class="card-title activator">Website estimated location<i class="material-icons right">more_vert</i></span>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{hostName}} estimated location details<i class="material-icons right">close</i></span>
+          <span class="card-title">Website estimated location details<i class="material-icons right">close</i></span>
 
           <table class="centered striped">
             <tbody>
@@ -84,11 +95,16 @@
     </article>
   </section>
 
+    <hr id="separator">
+
   <!-- user section -->
   <section id="user-section" ng-controller="UserLocationController">
     <article id="user-controls">
-       <a ng-click="getUserLocation()" class="waves-effect waves-light btn">my location</a>
-      <a ng-click="resetUserLocation()" class="waves-effect waves-light btn">reset location</a>
+
+      <h2>Find your current <br/>location</h2>
+
+      <button ng-click="getUserLocation()" class="waves-effect waves-light btn primary-btn">my location</button>
+      <button ng-click="resetUserLocation()" class="waves-effect waves-light btn secondary-btn">reset location</button>
     </article>
 
     <article ng-show="showUserLocation" id="user-location">
@@ -97,10 +113,10 @@
           <div id="user-map"></div>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">User estimated location<i class="material-icons right">more_vert</i></span>
+          <span class="card-title activator">User estimated location<i class="material-icons right">more_vert</i></span>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">User estimated location details<i class="material-icons right">close</i></span>
+          <span class="card-title">User estimated location details<i class="material-icons right">close</i></span>
 
           <table class="centered striped">
             <tbody>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300,400");
 #user-map, #domain-map {
   height: 100%;
   width: 100%;
@@ -5,15 +6,68 @@
 
 html, body {
   height: 100%;
-  background-color: #f6f6f6; }
+  background-color: #fff;
+  color: #333; }
+
+header {
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 2px;
+  margin: 0 auto; }
+  header hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc); }
 
 .container {
   margin: 25px auto !important;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 45% 45%;
-  grid-row-gap: 30px;
-  grid-template-areas: "domain-section" "user-section"; }
+  grid-template-rows: 6% 45% 15px 45%;
+  grid-template-areas: "header" "domain-section" "separator" "user-section"; }
+  .container h2 {
+    margin-bottom: 35px;
+    font-weight: 300; }
+  .container #separator {
+    width: 15%;
+    margin: 25px 5px;
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+  .container .primary-btn, .container .secondary-btn {
+    margin-top: 25px;
+    height: 44px;
+    font-family: "Roboto Mono", monospace;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: lighter;
+    width: 100%;
+    max-width: 360px;
+    border: 1px solid #333; }
+  .container .btn:disabled {
+    border: none; }
+  .container .primary-btn {
+    background-color: #333 !important;
+    color: #fff; }
+  .container .primary-btn:hover {
+    background-color: #fff !important;
+    color: #333; }
+  .container .btn-primary:focus {
+    background-color: #333 !important; }
+  .container .secondary-btn {
+    background-color: #fff !important;
+    color: #333; }
+  .container .secondary-btn:hover {
+    background-color: #333 !important;
+    color: #fff; }
+  .container .btn-secondary:focus {
+    background-color: #fff !important; }
+  .container .error-message {
+    color: #ff4a3d;
+    font-family: "Roboto Mono", monospace;
+    letter-spacing: 2px;
+    font-size: 12px; }
 
 #domain-section, #user-section {
   display: grid;
@@ -26,9 +80,31 @@ html, body {
     place-self: center stretch; }
   #domain-section #domain-location {
     grid-column-start: 3; }
-  #domain-section .btn {
+  #domain-section input {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #fff;
+    border-bottom-color: transparent;
+    height: 44px;
+    padding: 3px 15px;
+    vertical-align: top;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    letter-spacing: 2.5px;
+    color: #6b6b6b;
+    font-family: "Roboto Mono", monospace;
     width: 100%;
-    margin-top: 25px; }
+    max-width: 360px;
+    box-sizing: border-box; }
+  #domain-section input:hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08); }
 
 #user-section {
   grid-template-areas: "user-controls . user-location"; }
@@ -39,6 +115,14 @@ html, body {
 
 .card {
   margin: 0 !important;
-  height: 100%; }
+  top: 15px;
+  height: 95%;
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 2px; }
+  .card .card-title {
+    font-size: 16px !important; }
   .card .card-image {
-    height: 75%; }
+    height: 79%; }
+  .card table {
+    font-size: 12px;
+    margin-top: 25px; }

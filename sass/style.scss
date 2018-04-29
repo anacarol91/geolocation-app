@@ -1,4 +1,4 @@
-@import "variables", "mixins";
+@import "variables", "mixins", url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400');
 
 
 #user-map, #domain-map {
@@ -10,17 +10,99 @@
 html, body {
   height: 100%;
   background-color: $background-color;
+  color: $primary-color;
+}
+
+header {
+	font-family: $secondary-font;
+	letter-spacing: 2px;
+	margin: 0 auto;
+
+	hr {
+	    border: 0;
+	    height: 1px;
+	    background: #333;
+	    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+	}
 }
 
 .container {
   margin: 25px auto !important;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 45% 45%;
-  grid-row-gap: 30px;
+  grid-template-rows: 6% 45% 15px 45%;
   grid-template-areas:
+  	"header"
   	"domain-section"
+  	"separator"
   	"user-section";
+
+  	h2 {
+  		margin-bottom: 35px;
+    	font-weight: 300;
+  	}
+
+  	#separator {
+		 width: 15%;
+     	margin: 25px 5px;
+	    border: 0;
+	    height: 0;
+	    border-top: 1px solid rgba(0, 0, 0, 0.3);
+	    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	}
+
+	%base-btn {
+		margin-top: 25px;
+	    height: 44px;
+	    font-family: $secondary-font;
+	    letter-spacing: 2px;
+	    font-size: 13px;
+	    font-weight: lighter;
+	    width: 100%;
+	    max-width: 360px;
+	    border: 1px solid $primary-color;
+	}
+
+	.btn:disabled {
+		border: none;
+	}
+
+	.primary-btn {
+		@extend %base-btn;
+		background-color: $primary-color !important;
+		color: #fff;
+	}
+
+	.primary-btn:hover {
+		background-color: #fff !important;
+		color: $primary-color;
+	}
+
+	.btn-primary:focus {
+		background-color: $primary-color !important;
+	}
+
+	.secondary-btn {
+		@extend %base-btn;
+		background-color: #fff !important;
+		color: $primary-color;
+	}
+
+	.secondary-btn:hover {
+		background-color: $primary-color !important;
+		color: #fff;
+	}
+
+	.btn-secondary:focus {
+		background-color: #fff !important;
+	}
+
+	.error-message {
+		color: $error-color;
+		font-family: $secondary-font;
+	    letter-spacing: 2px;
+	    font-size: 12px;
+	}
 }
 
 %section-layout {
@@ -43,9 +125,25 @@ html, body {
 		grid-column-start: 3;
 	}
 
-	.btn {
-		width: 100%;
-		margin-top: 25px;
+	input {
+		@include border-radius(2px);
+		@include transition(box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1));
+		background-color: #fff;
+		border-bottom-color: transparent;
+	    height: 44px;
+		padding: 3px 15px;
+	    vertical-align: top;
+	    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+	    letter-spacing: 2.5px;
+	    color: $secondary-color;
+	    font-family: $secondary-font;
+	    width: 100%;
+	    max-width: 360px;
+	    box-sizing: border-box;
+	}
+
+	input:hover {
+		 box-shadow: 0 3px 8px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 	}
 }
 
@@ -64,24 +162,23 @@ html, body {
 	}
 }
 
-
-
-// .container {
-//   display: grid;
-//   grid-template-columns: 50% 50%;
-//   grid-template-rows: auto;
-//   grid-column-gap: 10px;
-//   grid-row-gap: 15px;
-//   grid-template-areas:
-//   	"domain-controls domain-location"
-//   	"user-controls user-location";
-// }
-
 .card {
 	margin: 0 !important;
-	height: 100%;
+	top: 15px;
+	height: 95%;
+	font-family: $secondary-font;
+    letter-spacing: 2px;
+
+    .card-title {
+		font-size: 16px !important;
+    }
 
 	.card-image {
-		height: 75%;
+		height: 79%;
+	}
+
+	table {
+		font-size: 12px;
+   		margin-top: 25px;
 	}
 }
