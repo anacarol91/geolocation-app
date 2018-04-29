@@ -1,0 +1,44 @@
+#user-map, #domain-map {
+  height: 100%;
+  width: 100%;
+  background-color: transparent; }
+
+html, body {
+  height: 100%;
+  background-color: #f6f6f6; }
+
+.container {
+  margin: 25px auto !important;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 45% 45%;
+  grid-row-gap: 30px;
+  grid-template-areas: "domain-section" "user-section"; }
+
+#domain-section, #user-section {
+  display: grid;
+  grid-template-columns: 45% auto 45%;
+  grid-template-rows: 100%; }
+
+#domain-section {
+  grid-template-areas: "domain-controls domain-location"; }
+  #domain-section #domain-controls {
+    place-self: center stretch; }
+  #domain-section #domain-location {
+    grid-column-start: 3; }
+  #domain-section .btn {
+    width: 100%;
+    margin-top: 25px; }
+
+#user-section {
+  grid-template-areas: "user-controls . user-location"; }
+  #user-section #user-controls {
+    place-self: center stretch; }
+  #user-section #user-location {
+    grid-column-start: 3; }
+
+.card {
+  margin: 0 !important;
+  height: 100%; }
+  .card .card-image {
+    height: 75%; }
