@@ -1,40 +1,42 @@
 # GeoLocation App
 
-GeoLocation is a web app built using the [AngularJS](https://angularjs.org/) framework that allow users to find out the physical location of websites hosting server, as well as their current location.
+GeoLocation is a web app built using the [AngularJS](https://angularjs.org/) framework that allow users to find out the physical location of website's hosting server, as well as their current location.
 
 ## Getting Started
 
-You're gonna need to have [NodeJS](https://nodejs.org/) on your local machine to install any necessary packages.
+Youll need to have [NodeJS](https://nodejs.org/) installed on your local machine to download any necessary packages.
 
-### Running the application
+## Running the application
 
-After clonning the project to your local machine, you should
+After clonning the project to your local machine, you should:
 
-Use npm to install project dependencies
+Install project dependencies
 
 ```
 npm install
 ```
 
-And repeat
+Set up a local server, such as
 
 ```
-until finished
+npm install -g serve
+serve
 ```
+Now you should be able to see the app running at [http://localhost:5000](http://localhost:5000/).
 
-End with an example of getting some data out of the system or using it for a little demo
+## Unit tests
 
-## Running the tests
+The test framework chosen for this project is [Protractor](https://www.protractortest.org/#/), since it's aimed for  [AngularJS](https://angularjs.org/) applications.
 
-The framework used for testing the application
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+### Setting up
+Install Protractor globally with:
 
 ```
 npm install -g protractor
-
+```
+This will install two command line tools, `protractor` and` webdriver-manager`.
+The `webdriver-manager` is a helper tool to easily get an instance of a Selenium Server running. Use it to download the necessary binaries with:
+```
 webdriver-manager update
 ```
 
@@ -44,44 +46,24 @@ Now set up a server with
 webdriver-manager start
 ```
 
-### And coding style tests
+### Running the tests
 
-Explain what these tests test and why
+Now you're ready to run some tests. Navigate to the tests folder and run Protractor with
 
 ```
-Give an example
+protractor conf.js
 ```
+This will run  series of unit tests to check input validation.
 
-## Deployment
+## JS libraries
 
-Add additional notes about how to deploy this on a live system
+Here are all tools used to develop the app:
 
-## Built With
+* [AngularJS](https://angularjs.org/) - The web framework used
+* [NodeJS](https://nodejs.org/) - Dependency Management
+* [Materialize](http://materializecss.com/) - Material Design based framework
+* [Protractor](https://www.protractortest.org/#/) - End-to-end test framework
+* [SASS](https://sass-lang.com//) - CSS pre-processor
+* [Gulp](https://gulpjs.com/) - Task automation
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
