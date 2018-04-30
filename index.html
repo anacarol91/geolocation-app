@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 </head>
@@ -18,29 +18,25 @@
   </header>
 
   <!-- domain section -->
-  <section id="domain-section" ng-controller="DomainLocationController">
+  <section id="domain-section" ng-controller="DomainLocationController" >
     <article id="domain-controls">
-
       <h2>Locate any <br/>website</h2>
 
       <form name="domainForm" class="myForm" ng-submit="getDomainLocation(hostName)" novalidate>
-        <input type="text" name="hostName" ng-model="hostName" ng-pattern="/^(w{3}\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/" required />
+        <input id="host-name-input" type="text" name="hostName" ng-model="hostName" ng-pattern="/^(w{3}\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/" required />
 
-        <div ng-messages="domainForm.hostName.$error" ng-if="domainForm.hostName.$touched" class="error-message">
+        <div id="error" ng-messages="domainForm.hostName.$error" ng-if="domainForm.hostName.$touched" class="error-message">
           <div ng-message="required">This field is required</div>
           <div ng-message="pattern">Please enter a valid website domain</div>
+          <div ng-if="notFound">It seems that this domain doesn't exist :( <br>Feel free to try another one!</div>
         </div>
 
-      <button ng-disabled="domainForm.$invalid" type="submit" class="waves-effect btn primary-btn">locate</button>
+      <button id="locate-btn" ng-disabled="domainForm.$invalid" type="submit" class="waves-effect btn primary-btn">locate</button>
       </form>
     </article>
 
-    <article ng-show="showDomainLocation" id="domain-location">
-      <div>
-
-      </div>
-
-     <div ng-show="showDomainLocation" class="card">
+    <article id="domain-location">
+     <div id="domain-location-card" ng-show="showDomainLocation" class="card">
         <div class="card-image waves-effect waves-block waves-light">
           <div id="domain-map"></div>
         </div>
@@ -165,7 +161,7 @@
   </section>
 
   <!-- JS SCRIPTS -->
-  <script src="js/node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services/location.js"></script>
   <script src="js/controllers/user.js"></script>

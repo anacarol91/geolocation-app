@@ -1,9 +1,11 @@
-controllers.controller('DomainLocationController', function($scope, LocationService) {
+controllers.controller('DomainLocationController', function($scope, $timeout, LocationService) {
 
   /* scope variables */
   $scope.domainDetails = '';
   $scope.hostName = '';
   $scope.showDomainLocation = false;
+  $scope.notFound = false;
+  //$scope.completed = false;
 
   /* scope functions */
   $scope.getDomainLocation = (hostName) => {
@@ -14,11 +16,11 @@ controllers.controller('DomainLocationController', function($scope, LocationServ
         LocationService.initMap(response.data.latitude, response.data.longitude, 'domain');
         $scope.domainDetails =  response.data;
         $scope.showDomainLocation = true;
+        $scope.notFound = false;
       }, (error) => {
-          // tratar erro
-            console.log("It seems that this domain doesn't exist yet.");
             console.log(error);
-          $scope.showDomainLocation = false;
+            $scope.showDomainLocation = false;
+            $scope.notFound = true;
         });
     }
 });
