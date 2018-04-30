@@ -11,14 +11,14 @@ You'll need to have [NodeJS](https://nodejs.org/) installed on your local machin
 After clonning the project to your local machine, you should:
 
 
-Install project dependencies
+Install project dependencies:
 
 
 ```
 npm install
 ```
 
-Set up a local server, such as
+Set up a local server, such as:
 
 
 ```
@@ -54,7 +54,7 @@ webdriver-manager update
 ```
 
 
-Now set up a server with
+Now set up a server with:
 
 
 ```
@@ -64,7 +64,7 @@ webdriver-manager start
 
 ### Running the tests
 
-Now you're ready to run some tests. Navigate to the tests folder and run Protractor with
+Now you're ready to run some tests. Navigate to the tests folder and run Protractor with:
 
 
 ```
@@ -72,7 +72,7 @@ protractor conf.js
 ```
 
 
-This will run  series of unit tests to check input validation.
+This will run  series of unit tests to check domain input validation.
 
 ## JS libraries
 
