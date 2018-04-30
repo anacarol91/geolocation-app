@@ -4,56 +4,75 @@ GeoLocation is a web app built using the [AngularJS](https://angularjs.org/) fra
 
 ## Getting Started
 
-Youll need to have [NodeJS](https://nodejs.org/) installed on your local machine to download any necessary packages.
+You'll need to have [NodeJS](https://nodejs.org/) installed on your local machine to download any necessary packages.
 
 ## Running the application
 
 After clonning the project to your local machine, you should:
 
-Install project dependencies
+
+Install project dependencies:
+
 
 ```
 npm install
 ```
 
-Set up a local server, such as
+Set up a local server, such as:
+
 
 ```
 npm install -g serve
 serve
 ```
+
+
 Now you should be able to see the app running at [http://localhost:5000](http://localhost:5000/).
+
 
 ## Unit tests
 
 The test framework chosen for this project is [Protractor](https://www.protractortest.org/#/), since it's aimed for  [AngularJS](https://angularjs.org/) applications.
 
+
 ### Setting up
+
 Install Protractor globally with:
+
 
 ```
 npm install -g protractor
 ```
+
+
 This will install two command line tools, `protractor` and` webdriver-manager`.
 The `webdriver-manager` is a helper tool to easily get an instance of a Selenium Server running. Use it to download the necessary binaries with:
+
+
 ```
 webdriver-manager update
 ```
 
-Now set up a server with
+
+Now set up a server with:
+
 
 ```
 webdriver-manager start
 ```
 
+
 ### Running the tests
 
-Now you're ready to run some tests. Navigate to the tests folder and run Protractor with
+Now you're ready to run some tests. Navigate to the tests folder and run Protractor with:
+
 
 ```
 protractor conf.js
 ```
-This will run  series of unit tests to check input validation.
+
+
+This will run  series of unit tests to check domain input validation.
 
 ## JS libraries
 
@@ -65,5 +84,12 @@ Here are all tools used to develop the app:
 * [Protractor](https://www.protractortest.org/#/) - End-to-end test framework
 * [SASS](https://sass-lang.com//) - CSS pre-processor
 * [Gulp](https://gulpjs.com/) - Task automation
+
+## Considerations
+
+Hopefully all evaluation criteria were met, but due to lack of time a few bugs weren't fixed:
+
+* UI design may be compromised in some devices
+* On page refresh, a few hidden items may flash on screen
 
 

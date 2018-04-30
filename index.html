@@ -22,15 +22,16 @@
     <article id="domain-controls">
       <h2>Locate any <br/>website</h2>
 
-      <form name="domainForm" class="myForm" ng-submit="getDomainLocation(hostName)" novalidate>
-        <input id="host-name-input" type="text" name="hostName" ng-model="hostName" ng-pattern="/^(w{3}\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/" required />
+      <form id="domain-form" name="domainForm" ng-submit="getDomainLocation(hostName)" novalidate>
+        <div id="input-block">
+          <input id="host-name-input" type="text" name="hostName" ng-model="hostName" ng-pattern="/^(w{3}\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/" required />
 
-        <div id="error" ng-messages="domainForm.hostName.$error" ng-if="domainForm.hostName.$touched" class="error-message">
-          <div ng-message="required">This field is required</div>
-          <div ng-message="pattern">Please enter a valid website domain</div>
-          <div ng-if="notFound">It seems that this domain doesn't exist :( <br>Feel free to try another one!</div>
+          <div id="error" ng-messages="domainForm.hostName.$error" ng-if="domainForm.hostName.$touched" class="error-message">
+            <div ng-message="required">This field is required</div>
+            <div ng-message="pattern">Please enter a valid website domain</div>
+            <div ng-if="notFound">It seems that this domain doesn't exist :( <br>Feel free to try another one!</div>
+          </div>
         </div>
-
       <button id="locate-btn" ng-disabled="domainForm.$invalid" type="submit" class="waves-effect btn primary-btn">locate</button>
       </form>
     </article>
@@ -99,8 +100,10 @@
 
       <h2>Find your current <br/>location</h2>
 
-      <button ng-click="getUserLocation()" class="waves-effect waves-light btn primary-btn">my location</button>
-      <button ng-click="resetUserLocation()" class="waves-effect waves-light btn secondary-btn">reset location</button>
+      <span id="location-btn">
+        <button ng-click="getUserLocation()" class="waves-effect waves-light btn primary-btn">my location</button>
+        <button ng-click="resetUserLocation()" class="waves-effect waves-light btn secondary-btn">reset location</button>
+      </span>
     </article>
 
     <article ng-show="showUserLocation" id="user-location">
