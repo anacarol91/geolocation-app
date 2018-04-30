@@ -85,4 +85,11 @@ Here are all tools used to develop the app:
 * [SASS](https://sass-lang.com//) - CSS pre-processor
 * [Gulp](https://gulpjs.com/) - Task automation
 
+## Considerations
+
+Due to lack of time, unfortunately a few bugs weren't fixed:
+
+* The app will break in some devices
+* On page refresh, a few hidden items will flash on screen
+
 
